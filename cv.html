@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#18251e" />
+    <meta name="description" content="Sandile Rasimeni's CV — Computer Science Honours student and aspiring software engineer." />
+    <title>Sandile Rasimeni | CV</title>
+    <style>
+      :root { --ink: #1d2b23; --muted: #59665d; --accent: #58782c; --line: #dce3d9; --paper: #f3f5ef; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.58 "DM Sans", "Segoe UI", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+      a { color: #42651f; text-decoration-thickness: 1px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+      a:hover { color: var(--ink); }
+      .toolbar { width: min(900px, calc(100% - 36px)); margin: 20px auto 14px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 13px; }
+      .toolbar a { font-weight: 650; }
+      .print-button { border: 0; border-radius: 6px; background: var(--ink); color: white; padding: 10px 15px; font: inherit; font-weight: 650; cursor: pointer; }
+      main { width: min(900px, calc(100% - 36px)); margin: 0 auto 36px; padding: 48px 58px; background: #fff; box-shadow: 0 16px 50px #2534280d; }
+      header { padding-bottom: 22px; border-bottom: 2px solid var(--ink); }
+      .eyebrow { margin: 0 0 7px; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+      h1, h2, h3 { margin-top: 0; line-height: 1.2; }
+      h1 { margin-bottom: 5px; font-size: 43px; letter-spacing: -.05em; }
+      .role { margin: 0; color: var(--muted); font-size: 17px; }
+      .contact { display: flex; flex-wrap: wrap; gap: 5px 17px; margin-top: 15px; color: var(--muted); font-size: 12px; }
+      section { padding-top: 20px; }
+      h2 { margin-bottom: 9px; font-size: 15px; letter-spacing: .01em; }
+      p { margin: 0 0 9px; }
+      .intro { font-size: 13px; }
+      .entry { margin-top: 12px; }
+      .entry:first-of-type { margin-top: 0; }
+      .entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+      h3 { margin-bottom: 3px; font-size: 13px; }
+      .when, .detail { color: var(--muted); font-size: 11px; }
+      .detail { margin-bottom: 5px; }
+      .entry p:not(.detail) { font-size: 12px; }
+      .links { display: flex; flex-wrap: wrap; gap: 5px 16px; margin-top: 5px; font-size: 11px; font-weight: 650; }
+      .skill-story { display: grid; grid-template-columns: 135px 1fr; gap: 5px 14px; font-size: 11px; }
+      .skill-story strong { font-size: 11px; }
+      .skill-story p { margin: 0; color: var(--muted); }
+      .closing { margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+      @media (max-width: 600px) {
+        main { padding: 30px 22px; }
+        h1 { font-size: 35px; }
+        .entry-head { display: block; }
+        .when { display: block; margin-bottom: 3px; }
+        .skill-story { grid-template-columns: 1fr; gap: 1px; }
+        .skill-story p { margin-bottom: 7px; }
+      }
+      @media print {
+        @page { size: A4; margin: 14mm; }
+        body { background: #fff; font-size: 10pt; line-height: 1.45; }
+        .toolbar { display: none; }
+        main { width: auto; margin: 0; padding: 0; box-shadow: none; }
+        header { padding-bottom: 15px; }
+        h1 { font-size: 28pt; }
+        section { padding-top: 13px; }
+        .entry { margin-top: 8px; break-inside: avoid; }
+        a { color: #31541a; }
+        .links a::after { content: " — " attr(href); color: #59665d; font-weight: 400; font-size: 8pt; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="toolbar" aria-label="CV actions">
+      <a href="index.html">← Back to portfolio</a>
+      <button class="print-button" type="button" onclick="window.print()">Print / save as PDF</button>
+    </nav>
+    <main>
+      <header>
+        <p class="eyebrow">Curriculum vitae</p>
+        <h1>Sandile Rasimeni</h1>
+        <p class="role">Computer Science Honours student · Aspiring software engineer</p>
+        <div class="contact">
+          <span>Port Elizabeth, Eastern Cape, South Africa</span>
+          <a href="https://sandilerasimeni.github.io/">Portfolio</a>
+          <a href="https://www.linkedin.com/in/sandile-rasimeni-85a072445/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/sandilerasimeni" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </header>
+
+      <section aria-labelledby="profile-heading">
+        <h2 id="profile-heading">Profile</h2>
+        <p class="intro">I’m a Computer Science Honours student at Nelson Mandela University and a graduate in Computer Science and Mathematics. I enjoy understanding a problem, working through the reasoning behind it, and building software that people can use. My studies have strengthened my analytical foundation; my projects have helped me practise turning ideas into working applications. I’m looking for an opportunity to contribute to a team, keep learning, and grow as a software engineer.</p>
+      </section>
+
+      <section aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        <div class="entry">
+          <div class="entry-head"><h3>Computer Science Honours</h3><span class="when">Current</span></div>
+          <p class="detail">Nelson Mandela University · South Africa</p>
+          <p>I am continuing my studies at honours level, deepening my computer science knowledge and learning to approach unfamiliar technical questions with care and discipline.</p>
+        </div>
+        <div class="entry">
+          <div class="entry-head"><h3>BSc in Computer Science and Mathematics</h3><span class="when">Completed</span></div>
+          <p class="detail">Nelson Mandela University · South Africa</p>
+          <p>This degree gave me a foundation in computing and mathematical reasoning, and practice breaking complicated problems into smaller questions I can work through.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="work-heading">
+        <h2 id="work-heading">Selected work</h2>
+        <div class="entry">
+          <div class="entry-head"><h3>SpotMe — Android ride-sharing application</h3><span class="when">Project</span></div>
+          <p class="detail">Java · Android · SQLite</p>
+          <p>I’m building an Android ride-sharing app for passengers and drivers. Passengers can request rides, drivers can accept them, and the app supports live updates and local data storage. Working on both sides of the service has helped me think about how each person uses the app and how their information needs to stay in step.</p>
+          <div class="links"><a href="https://github.com/sandilerasimeni/SpotMe-RideSharing" target="_blank" rel="noopener noreferrer">Source code</a><a href="https://sandilerasimeni.github.io/#projects">Project on my portfolio</a></div>
+        </div>
+        <div class="entry">
+          <div class="entry-head"><h3>Advanced programming coursework</h3><span class="when">Coursework</span></div>
+          <p>I use programming assignments to practise applying concepts from my studies in code. These are learning projects, not commercial deployments; I can explain the decisions and lessons behind the work.</p>
+          <div class="links"><a href="https://github.com/sandilerasimeni/Short-Projects-And-Assignments" target="_blank" rel="noopener noreferrer">First-semester assignments</a><a href="https://github.com/sandilerasimeni/Short-Projects-And-Assignments-2" target="_blank" rel="noopener noreferrer">Second-semester assignments</a></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="approach-heading">
+        <h2 id="approach-heading">How I work</h2>
+        <div class="skill-story">
+          <strong>Programming</strong><p>I have worked with Java and Kotlin for application development, and C# and Python through my studies and projects. I’m ready to learn the tools a role requires.</p>
+          <strong>Problem solving</strong><p>Computer Science and Mathematics have taught me to break a problem into manageable parts, reason carefully about possible answers, and check my assumptions.</p>
+          <strong>Building for people</strong><p>My ride-sharing project has encouraged me to consider the needs of passengers and drivers, not just the code behind the application.</p>
+        </div>
+      </section>
+
+      <p class="closing">More about my work: <a href="https://sandilerasimeni.github.io/">sandilerasimeni.github.io</a> · References available on request.</p>
+    </main>
+  </body>
+</html>
