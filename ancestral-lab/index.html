@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="An educational, browser-only experiment in CNN face detection and stochastic latent-space portrait simulation. Not an ancestry predictor.">
+  <title>Lineage Lab — speculative portrait simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="wordmark" href="#top"><span class="mark">L</span> LINEAGE LAB</a><span class="top-note">A browser-based creative experiment</span></header>
+  <main id="top" class="shell">
+    <section class="intro">
+      <p class="eyebrow"><span class="pulse"></span> CNN-ASSISTED · SPECULATIVE · PRIVATE BY DESIGN</p>
+      <h1>One face.<br><span>Many imagined paths.</span></h1>
+      <p class="lede">Explore how a small set of visual proportions can drift through generations in a stochastic portrait simulation. This is a creative visualization—not genealogy, DNA analysis, or a prediction of what real ancestors looked like.</p>
+    </section>
+
+    <section class="notice" role="note">
+      <span class="notice-icon" aria-hidden="true">!</span>
+      <p><strong>Important:</strong> A face photo cannot reveal real ancestors or reconstruct a family tree. Generated portraits are fictional illustrations. Your image is processed in this browser and is not uploaded to a server.</p>
+    </section>
+
+    <section class="workspace" aria-label="Lineage Lab simulator">
+      <aside class="controls panel">
+        <div class="panel-heading"><span class="step">01</span><div><h2>Start with a portrait</h2><p>Choose an image with one clearly visible face.</p></div></div>
+        <label class="upload" for="photo-input"><span class="upload-icon" aria-hidden="true">＋</span><strong>Choose an image</strong><span>JPG, PNG or WebP · up to 8 MB</span><input id="photo-input" type="file" accept="image/jpeg,image/png,image/webp"></label>
+        <div class="preview-wrap" id="preview-wrap" hidden>
+          <img id="photo-preview" alt="Your selected portrait preview">
+          <button type="button" class="remove-photo" id="remove-photo">Remove image</button>
+        </div>
+        <div class="model-status" id="model-status" role="status" aria-live="polite"><span class="status-dot"></span><span>Loading the browser-based CNN face detector…</span></div>
+        <div class="divider"></div>
+        <label class="range-label" for="generation"><span>Explore generation</span><output id="generation-value" for="generation">10</output></label>
+        <input id="generation" type="range" min="1" max="50" value="10">
+        <div class="range-ends"><span>1 generation</span><span>50 generations</span></div>
+        <label class="seed-label" for="seed-input">Simulation seed <span>Same seed = same imagined paths</span></label>
+        <input id="seed-input" class="text-input" type="number" value="24719" min="0" max="999999999" inputmode="numeric">
+        <button id="generate-button" class="button" type="button" disabled><span aria-hidden="true">✳</span> Explore imagined paths</button>
+        <p class="privacy-note">Local-only processing. The uploaded image is not saved or sent anywhere.</p>
+      </aside>
+
+      <section class="results panel" aria-labelledby="results-title">
+        <div class="results-heading"><div><p class="eyebrow">SIMULATION OUTPUT</p><h2 id="results-title">Possible visual variations</h2></div><span class="generation-badge" id="generation-badge">GEN 10</span></div>
+        <div id="empty-state" class="empty-state"><div class="empty-art" aria-hidden="true"><div class="empty-orbit orbit-a"></div><div class="empty-orbit orbit-b"></div><span>?</span></div><h3>Your exploration starts here</h3><p>Select a portrait, then run the simulation to see fictional variations at the chosen generation.</p></div>
+        <div id="results-grid" class="results-grid" aria-live="polite"></div>
+        <div id="analysis-note" class="analysis-note" hidden></div>
+        <canvas id="analysis-canvas" width="256" height="256" aria-hidden="true"></canvas>
+      </section>
+    </section>
+
+    <section class="method panel">
+      <div class="panel-heading"><span class="step">02</span><div><h2>What the model does—and doesn’t do</h2><p>Transparent about the boundary between machine learning and imagination.</p></div></div>
+      <div class="method-grid">
+        <article><span class="method-number">A</span><h3>CNN face detection</h3><p>TensorFlow.js BlazeFace, a pre-trained convolutional neural network, locates a face and facial landmarks in your browser. Those coordinates only initialize simple geometric illustration parameters.</p></article>
+        <article><span class="method-number">B</span><h3>Stochastic trait simulation</h3><p>A seeded random process mutates a small, illustrative parameter vector across the selected number of generations. The SVG portraits are drawn by this app; they are not generated by a trained face decoder.</p></article>
+        <article><span class="method-number">C</span><h3>Why no VAE yet?</h3><p>A useful variational autoencoder needs a suitable, licensed face dataset and training. One uploaded image is not enough to train a meaningful VAE or infer inheritance. This demo does not pretend otherwise.</p></article>
+      </div>
+    </section>
+    <footer><span>LINEAGE LAB · An educational prototype by Sandile Rasimeni</span><span>Fictional outputs · Not ancestry or genetic predictions</span></footer>
+  </main>
+</body>
+</html>
